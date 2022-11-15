@@ -2,7 +2,6 @@ import { defineConfig } from 'cypress'
 
 export default defineConfig({
   env: {
-    baseUrl: 'http://localhost:4200',
     username: 'cytest@test.com', 
     password: 'Welcome123',
     apiUrl: 'https://api.realworld.io'
@@ -13,7 +12,19 @@ export default defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      const username = process.env.DB_USERNAME
+      const password = process.env.PASSWORD
+
+      // if(!password){
+      //   throw new Error(`missing PASSWORD environment variable`)
+      // }
+
+      config.env = {username, password}
+      return config
     },
+    baseUrl: 'http://localhost:4200',
+    specPattern: 'cypress/e2e/**/*.{js,jsx,ts,tsx}',
+    excludeSpecPattern: 'cypress/e2e/demos/*',
+
   }
 })

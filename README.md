@@ -7,6 +7,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
     - [Libraries and Tools](#libraries-and-tools)
   - [Command Line](#command-line)
   - [Environment Variables](#environment-variables)
+  - [Configuration API](#configuration-api)
 
 
 
@@ -60,3 +61,32 @@ npm install --save-dev start-server-and-test
 - Values are different across developer machines.
 - Values are different across multiple environments: (dev, staging, qa, prod)
 - Values change frequently and are highly dynamic.
+
+## Configuration API
+Cypress enables you to dynamically modify configuration values and environment variables from your [Cypress configuration](https://docs.cypress.io/api/plugins/configuration-api).
+
+```js
+// promisified fs module
+const fs = require('fs-extra')
+const path = require('path')
+
+function getConfigurationByFile(file) {
+  const pathToConfigFile = path.resolve('..', 'config', `${file}.json`)
+
+  return fs.readJson(pathToConfigFile)
+}
+
+// plugins file
+module.exports = (on, config) => {
+  // accept a configFile value or use development by default
+  const file = config.env.configFile || 'development'
+
+  return getConfigurationByFile(file)
+}
+```
+```sh
+cypress run
+cypress run --env configFile=qa
+cypress run --env configFile=staging
+cypress run --env configFile=production
+```
