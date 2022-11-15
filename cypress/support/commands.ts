@@ -35,3 +35,16 @@
 //     }
 //   }
 // }
+
+
+Cypress.Commands.add('loginToApplication', () => {
+        
+})
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+        loginToApplication(): Chainable<void>
+    }
+  }
+}
