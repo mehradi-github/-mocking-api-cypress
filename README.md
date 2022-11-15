@@ -6,6 +6,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
   - [APIs](#apis)
     - [Libraries and Tools](#libraries-and-tools)
   - [Command Line](#command-line)
+  - [Environment Variables](#environment-variables)
 
 
 
@@ -52,3 +53,10 @@ npx cypress run
 ```sh
 npm install --save-dev start-server-and-test
 ```
+
+## Environment Variables
+[Environment Variables](https://docs.cypress.io/guides/guides/environment-variables) are useful when:
+
+- Values are different across developer machines.
+- Values are different across multiple environments: (dev, staging, qa, prod)
+- Values change frequently and are highly dynamic.
