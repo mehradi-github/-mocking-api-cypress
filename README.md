@@ -4,13 +4,14 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
 - [Mocking API with Cypress](#mocking-api-with-cypress)
   - [Installing and opening Cypress](#installing-and-opening-cypress)
   - [APIs](#apis)
-    - [Libraries and Tools](#libraries-and-tools)
   - [Command Line](#command-line)
   - [Environment Variables](#environment-variables)
   - [Configuration API](#configuration-api)
   - [Multiple Test Reports](#multiple-test-reports)
   - [Docker](#docker)
   - [Cross Browser Testing](#cross-browser-testing)
+  - [Open Source Cypress Dashboard](#open-source-cypress-dashboard)
+  - [Visual Testing](#visual-testing)
 
 
 
@@ -40,7 +41,6 @@ you can find here [table of contents](https://docs.cypress.io/api/table-of-conte
   - [its](https://docs.cypress.io/api/commands/its): Get a property's value on the previously yielded subject.
 - Plugins
 
-### Libraries and Tools
 Cypress automatically bundles and wraps these libraries:
 | Name                                                | What it does                               |
 | :-------------------------------------------------- | :----------------------------------------- |
@@ -165,3 +165,9 @@ CMD ["npm", "run", "cy:e2e"]
 ```
 ## Cross Browser Testing
 Cypress has the capability to run tests [across multiple browsers](https://docs.cypress.io/guides/guides/cross-browser-testing). Currently, Cypress has support for Chrome-family browsers (including Electron and Chromium-based Microsoft Edge), WebKit (Safari's browser engine), and Firefox.
+
+## Open Source Cypress Dashboard
+[Sorry Cypress](https://docs.sorry-cypress.dev/guide/get-started) is a free, MIT licensed open source software. Self-hosted, alternative dashboard for unlimited parallelization, recording and debugging of cypress tests
+
+## Visual Testing
+Cypress is a functional test runner.Your visual styles may also rely on more than CSS, perhaps you want to ensure an SVG or image has rendered correctly or shapes were correctly drawn to a canvas.Cypress gives a stable platform for writing plugins that can perform [visual testing](https://docs.cypress.io/guides/tooling/visual-testing). Listed in the [Visual Testing plugins](https://docs.cypress.io/guides/tooling/visual-testing#Functional-vs-visual-testing) section.
