@@ -2,7 +2,8 @@
 
 describe('Tests with backend', () => {
 
-    beforeEach('login to application', () => {       
+    beforeEach('login to application', () => {      
+        cy.intercept('GET', 'https://api.realworld.io/api/tags', {fixture: 'tags.json'}) 
         cy.loginToApplication()
     })
     it('should log in', async ()=>{
@@ -26,5 +27,12 @@ describe('Tests with backend', () => {
             expect(xhr.response.body.article.description).to.equal('This is a description')
         })
         
+    })
+
+    it.only('verify popular tags are displayed', () => {
+        cy.get('.tag-list')
+        .should('contain', 'cypress')
+        .and('contain', 'automation')
+        .and('contain', 'testing')
     })
 })
