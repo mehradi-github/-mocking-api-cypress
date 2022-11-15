@@ -6,6 +6,10 @@ export default defineConfig({
     username: 'cytest@test.com', 
     password: 'Welcome123',
     apiUrl: 'https://api.realworld.io'
+  }, 
+  retries: {
+    runMode: 1,
+    openMode: 0
   },
   e2e: {
     setupNodeEvents(on, config) {
