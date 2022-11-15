@@ -12,6 +12,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
 ```sh
 npm install cypress --save-dev
 npx cypress open
+npx cypress run
 ```
 
 
