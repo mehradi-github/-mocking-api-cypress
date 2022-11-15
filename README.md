@@ -5,6 +5,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
   - [Installing and opening Cypress](#installing-and-opening-cypress)
   - [APIs](#apis)
     - [Libraries and Tools](#libraries-and-tools)
+  - [Command Line](#command-line)
 
 
 
@@ -12,7 +13,6 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
 ```sh
 npm install cypress --save-dev
 npx cypress open
-npx cypress run
 ```
 
 
@@ -43,3 +43,12 @@ Cypress automatically bundles and wraps these libraries:
 | [lolex ](https://github.com/sinonjs/lolex)          | provides the cy.clock() and cy.tick() APIs |
 | [sinon-chai](https://github.com/domenic/sinon-chai) | adds chai assertions for stubs and spies   |
 
+## Command Line 
+[Cypress CLI](https://docs.cypress.io/guides/guides/command-line):
+```sh
+npx cypress run
+```
+
+```sh
+npm install --save-dev start-server-and-test
+```

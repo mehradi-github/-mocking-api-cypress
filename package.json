@@ -9,7 +9,10 @@
     "test": "ng test",
     "lint": "ng lint --force",
     "e2e": "ng e2e",
-    "cypress:open": "cypress open"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:e2e": "start-test start http-get://localhost:4200 cy:run"
+
   },
   "pre-commit": [
     "lint"
