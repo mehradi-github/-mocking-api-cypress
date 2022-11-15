@@ -9,6 +9,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
   - [Environment Variables](#environment-variables)
   - [Configuration API](#configuration-api)
   - [Multiple Test Reports](#multiple-test-reports)
+  - [Docker](#docker)
 
 
 
@@ -135,4 +136,29 @@ package.json
     "postreport": "npm run combine:reports"
   }
 }
+```
+
+## Docker
+
+There are [Docker](https://docs.cypress.io/examples/examples/docker) images:
+
+[https://github.com/cypress-io/cypress-docker-images](https://github.com/cypress-io/cypress-docker-images)
+
+- cypress/base:<Node version> has the operating system dependencies required to run Cypress.
+- cypress/browsers:<tag> extends the base images with pre-installed browsers.
+- cypress/included:<Cypress version> extends the base images with pre-installed Cypress versions.
+
+```Dokerfile
+FROM cypress/base:18.12.0
+
+RUN mkdir /app
+WORKDIR /app
+
+COPY . /app
+
+RUN npm install
+
+RUN $(npm bin)/cypress verify
+
+CMD ["npm", "run", "cy:e2e"]
 ```
