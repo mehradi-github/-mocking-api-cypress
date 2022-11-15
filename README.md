@@ -8,6 +8,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
   - [Command Line](#command-line)
   - [Environment Variables](#environment-variables)
   - [Configuration API](#configuration-api)
+  - [Multiple Test Reports](#multiple-test-reports)
 
 
 
@@ -89,4 +90,49 @@ cypress run
 cypress run --env configFile=qa
 cypress run --env configFile=staging
 cypress run --env configFile=production
+```
+## Multiple Test Reports
+Cypress is built on top of Mocha, that means any [reporter](https://docs.cypress.io/guides/tooling/reporters) built for Mocha can be used with Cypress.
+
+```sh
+npm install --save-dev cypress-multi-reporters mocha-junit-reporter junit-report-merger
+npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator
+```
+cypress.config.ts
+```ts
+import { defineConfig } from 'cypress'
+
+export default defineConfig({
+  reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    configFile: 'reporter-config.json'
+  }
+})
+```
+reporter-config.json :
+```json
+  {
+    "reporterEnabled": "mocha-junit-reporter, mochawesome",
+    "mochaJunitReporterReporterOptions": {
+      "mochaFile": "cypress/results/junit/results-[hash].xml"
+    },
+    "reporterOptions": {
+        "reportDir": "cypress/results/mochawesome",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      }
+  }
+```
+package.json
+```json
+{
+  "scripts": {
+    "delete:reports": "rm cypress/results/* || true",
+    "combine:reports": "jrm cypress/results/combined-report.xml \"cypress/results/*.xml\"",
+    "prereport": "npm run delete:reports",
+    "report": "cypress run --reporter cypress-multi-reporters --reporter-options configFile=reporter-config.json",
+    "postreport": "npm run combine:reports"
+  }
+}
 ```

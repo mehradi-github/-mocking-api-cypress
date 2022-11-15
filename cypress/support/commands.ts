@@ -50,7 +50,7 @@ Cypress.Commands.add('loginToApplication', () => {
         .its('body').then( body => {
             const token = body.user.token
             cy.wrap(token).as('token')
-            cy.visit(Cypress.env('baseUrl'), {
+            cy.visit('/', {
                 onBeforeLoad (win){
                     win.localStorage.setItem('jwtToken', token)
                 }

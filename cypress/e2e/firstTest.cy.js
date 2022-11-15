@@ -36,7 +36,7 @@ describe('Tests with backend', () => {
         .and('contain', 'testing')
     })
 
-    it('verify global feed likes count', () => {
+    it.only('verify global feed likes count', () => {
         cy.intercept('GET', 'https://api.realworld.io/api/articles/feed*', {"articles":[],"articlesCount":0})
         cy.intercept('GET', 'https://api.realworld.io/api/articles*', { fixture: 'articles.json'})
 
@@ -56,7 +56,7 @@ describe('Tests with backend', () => {
 
     })
 
-    it.only('delete a new article in a global feed', () => {
+    it.skip('delete a new article in a global feed', () => {
 
         const bodyRequest = {
             "article": {
