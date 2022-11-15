@@ -31,6 +31,7 @@ you can find here [table of contents](https://docs.cypress.io/api/table-of-conte
 - Utilities
 - Cypress API
   - [intercept](https://docs.cypress.io/api/commands/intercept): Spy and stub network requests and responses.
+  - [its](https://docs.cypress.io/api/commands/its): Get a property's value on the previously yielded subject.
 - Plugins
 
 ### Libraries and Tools
