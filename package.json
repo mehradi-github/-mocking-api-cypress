@@ -20,7 +20,10 @@
     "cy:e2e": "start-test start http-get://localhost:4200 cy:run && npm run combine:reports && npm run mochawesome:merge",    
     "cy:open": "npx cypress open",
     "cy:open_dev": "npx cypress open --env username=cytest3@test.com,password=Welcome000",
-    "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD"
+    "cy:open_process": "npx cypress open --env username=$DB_USERNAME,password=$PASSWORD",
+
+    "cy:run_spec":"npx cypress run --spec 'cypress/e2e/firstTest.cy.js'",
+    "cy:run_browser": "npm run cy:run_spec -- --browser firefox & npm run cy:run_spec -- --browser chrome & npm run cy:run_spec -- --browser edge"
   },
   "pre-commit": [
     "lint"

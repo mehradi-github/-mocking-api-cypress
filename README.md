@@ -10,6 +10,7 @@ We use [RealWorld](https://github.com/gothinkster/angular-realworld-example-app)
   - [Configuration API](#configuration-api)
   - [Multiple Test Reports](#multiple-test-reports)
   - [Docker](#docker)
+  - [Cross Browser Testing](#cross-browser-testing)
 
 
 
@@ -162,3 +163,5 @@ RUN $(npm bin)/cypress verify
 
 CMD ["npm", "run", "cy:e2e"]
 ```
+## Cross Browser Testing
+Cypress has the capability to run tests [across multiple browsers](https://docs.cypress.io/guides/guides/cross-browser-testing). Currently, Cypress has support for Chrome-family browsers (including Electron and Chromium-based Microsoft Edge), WebKit (Safari's browser engine), and Firefox.
